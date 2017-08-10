@@ -30,7 +30,7 @@ const VALUE_EXTRACTORS = {
 		return (val === null ? null : (val ? true : false));
 	},
 	'datetime': function(val) {
-		return (val === null ? null : val.toISOString());
+		return (val === null ? null : new function() { try { return val.toISOString() }catch(e) { return new Date(val) } }());
 	},
 	'isNull': function(val) {
 		return (val === null);
