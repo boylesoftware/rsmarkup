@@ -36,7 +36,7 @@ const VALUE_EXTRACTORS = {
 		try {
 			return val.toISOString();
 		} catch(err) {
-			return new Date(val);
+			return new Date(val).toISOString();
 		}
 	},
 	'isNull': function(val) {
